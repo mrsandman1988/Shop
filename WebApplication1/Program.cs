@@ -22,8 +22,9 @@ namespace WebApplication1
             builder.Services.AddDbContext<ShopDbContext>(
              option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyProduct")));
             builder.Services.AddScoped<IProductRepository,ProductRepository>();
-            builder.Services.AddScoped<IProductService,ProductService>();  
-
+            builder.Services.AddScoped<IProductService,ProductService>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
